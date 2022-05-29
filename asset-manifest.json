@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.css": "/lovepin/static/css/main.0a29141f.css",
+    "main.js": "/lovepin/static/js/main.a519433e.js",
+    "index.html": "/lovepin/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.0a29141f.css",
+    "static/js/main.a519433e.js"
+  ]
+}
