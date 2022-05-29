@@ -1,0 +1,82 @@
+@import '../scss/globals.scss';
+
+.word-result {
+  padding: 1rem;
+  line-height: 1.5;
+  .sub-topic {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .heart {
+    width: 1.5rem;
+    height: 1rem;
+    display: inline-flex;
+    path {
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  .word {
+    font-size: 32px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    overflow-y: hidden;
+    .text {
+      position: relative;
+      .heart {
+        position: absolute;
+        top: 0;
+        right: -1rem;
+        z-index: -1;
+      }
+    }
+  }
+  .pos {
+    text-align: center;
+    color: #7f7f7f;
+  }
+  .pronunciation {
+    display: flex;
+    margin: 1rem 0;
+    .us,
+    .uk {
+      flex-grow: 1;
+      height: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      background-color: #ffffff10;
+      cursor: pointer;
+    }
+    .space {
+      width: 1rem;
+    }
+  }
+  .level,
+  .extra {
+    color: #7f7f7f;
+  }
+  .definitions {
+    padding: 1rem 0;
+  }
+  .definition {
+    margin: 0 0 1rem;
+    border-radius: 8px;
+    // padding: .5rem;
+    .label {
+      color: #7f7f7f;
+    }
+    &:hover {
+      background-color: #ffffff10;
+    }
+  }
+  .examples {
+    padding: 0.5rem;
+    font-size: 12px;
+  }
+  .example {
+    padding: 0 1rem;
+  }
+}

@@ -1,3 +1,5 @@
+@import '../scss/globals.scss';
+
 .get-db {
   height: 2.5rem;
   padding: 0.75rem 0.75rem 0;
@@ -8,4 +10,12 @@
   width: calc(100% - 2rem);
   text-align: center;
   cursor: pointer;
+  .progressbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(to right, $cc2, $cc5);
+    z-index: -1;
+  }
 }

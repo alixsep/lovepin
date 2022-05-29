@@ -7,9 +7,10 @@
     "email": "alixsep@outlook.com",
     "url": "https://github.com/alixsep"
   },
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.27.2",
     "idb-keyval": "^6.1.0",
     "node-sass": "6.0.1",
     "react": "^18.1.0",
@@ -18,9 +19,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp -r assets/ build/static/",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "intialsetup": "npm install -g dot-json serve",
     "generate-pwa-assets": "npx pwa-asset-generator ./lovepin.svg -c -f -m -q=100 -o=0 -p=0",
     "view": "dot-json package.json homepage \".\" && rm -r build && npm run build && dot-json package.json homepage \"https://alixsep.github.io/lovepin\" && serve build"
@@ -41,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
