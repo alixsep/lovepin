@@ -5,33 +5,51 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- TODO: Make icon for the app -->
-    <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+    <!-- Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="196x196"
+      href="%PUBLIC_URL%/favicon-196.png"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <!-- TODO: Set color based on the color theme -->
     <!-- <meta name="theme-color" content="#000000" /> -->
 
-    <!-- TODO: Write proper description for the app -->
-    <!-- <meta
+    <!-- App Description -->
+    <meta
       name="description"
-      content="Web site created using create-react-app"
-    /> -->
+      content="Lovepin, A modern dictionary alike app which helps learning the oxford 5000 english words."
+    />
 
-    <!-- TODO: Make logo for apple touch -->
-    <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
+    <!-- Manifest file -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!-- TODO: Turn app into PWA -->
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- TODO: Make dynamic title for app -->
-    <title>React App</title>
+    <title>Lovepin</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script type="">
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('./sw.js')
+            .then((reg) => console.log('Success: ', reg.scope))
+            .catch((err) => console.log('Failure: ', err));
+        });
+      }
+    </script>
   </body>
 </html>
