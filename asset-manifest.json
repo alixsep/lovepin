@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/lovepin/static/css/main.0a29141f.css",
-    "main.js": "/lovepin/static/js/main.a519433e.js",
+    "main.css": "/lovepin/static/css/main.2aa18b5b.css",
+    "main.js": "/lovepin/static/js/main.ade5c541.js",
     "index.html": "/lovepin/index.html"
   },
   "entrypoints": [
-    "static/css/main.0a29141f.css",
-    "static/js/main.a519433e.js"
+    "static/css/main.2aa18b5b.css",
+    "static/js/main.ade5c541.js"
   ]
 }

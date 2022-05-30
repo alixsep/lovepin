@@ -1,5 +1,18 @@
-const CACHE_VERSION = '0.4.0';
-const urlsToCache = ['index.html'];
+const CACHE_VERSION = '0.5.0';
+const urlsToCache = 
+[
+  "/",
+  "/apple-icon-180.png",
+  "/asset-manifest.json",
+  "/favicon-196.png",
+  "/index.html",
+  "/manifest-icon-192.maskable.png",
+  "/manifest-icon-512.maskable.png",
+  "/manifest.json",
+  "/static/css/main.2aa18b5b.css",
+  "/static/js/main.ade5c541.js"
+]
+;
 
 const self = this;
 
@@ -22,10 +35,14 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('fetch', (e) => {
   e.respondWith(
-    caches.match(e.request).then(() => {
-      return fetch(e.request).catch(() => {
-        caches.match('index.html');
-      });
+    caches.match(e.request).then(function (response) {
+      if (response) {
+        return response;
+      } else
+        return fetch(e.request)
+          .catch(() => {
+            caches.match('index.html');
+          });
     })
   );
 });
