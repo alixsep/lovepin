@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { exit } = require('process');
+
 const packageJson = require('../package.json');
 
 const appVersion = packageJson.version;
@@ -14,10 +15,10 @@ require('node-dir').files(buildPath, function (err, files) {
         file.match(/\.[0-9a-z]+$/i)[0]
       )
     )
-    .map((file) => file.replace(buildPath, ''))
-    .filter((file) => !['/sw.js'].includes(file));
+    .map((file) => '/lovepin' + file.replace(buildPath, ''))
+    .filter((file) => !['/lovepin/sw.js'].includes(file));
 
-  generate(['/', ...list]);
+  generate(['/lovepin/', ...list]);
 });
 
 const generate = (list) => {
@@ -69,7 +70,6 @@ self.addEventListener('activate', (e) => {
         cacheVersions.map((cacheVersion) => {
           if (!cacheWhitelist.includes(cacheVersion))
             return caches.delete(cacheVersion);
-          else return null;
         })
       )
     )
