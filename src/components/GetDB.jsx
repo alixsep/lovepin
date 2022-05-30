@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './getDB.scss';
 
-import { saveDB } from '../utils/database';
+import { deleteDB, saveDB } from '../utils/database';
 
 const GetDB = () => {
   const [buttonData, setButtonData] = useState({
@@ -21,7 +21,7 @@ const GetDB = () => {
       window.location.origin +
       window.location.pathname +
       'static/assets/oxford5000.min.json';
-    // deleteDatabase();
+    await deleteDB();
     await axios({
       url: url,
       method: 'GET',
@@ -31,8 +31,9 @@ const GetDB = () => {
         let percentCompleted = Math.round(
           (progressEvent.loaded * 100) / progressEvent.total
         );
+        let validation = percentCompleted >= 0 && percentCompleted <= 100;
         setButtonData({
-          msg: `${percentCompleted}%`,
+          msg: validation ? `${percentCompleted}%` : 'Downloading...',
           percentage: percentCompleted,
         });
       },

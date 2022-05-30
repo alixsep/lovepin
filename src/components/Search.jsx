@@ -54,7 +54,10 @@ const Search = () => {
           <SearchSVG />
         </div>
       </div>
-      <div className={`search-results mica dsh${isFocused ? ' open' : ''}`}>
+      <div
+        className={`search-results mica dsh${isFocused ? ' open' : ''}`}
+        style={{ pointerEvents: word.id && !isFocused ? 'none' : 'all' }}
+      >
         {resources &&
           (!query ? (
             <div className='tip'>Type something :D</div>

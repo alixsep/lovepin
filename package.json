@@ -7,7 +7,7 @@
     "email": "alixsep@outlook.com",
     "url": "https://github.com/alixsep"
   },
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "dependencies": {
     "axios": "^0.27.2",
@@ -19,14 +19,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp -r assets/ build/static/",
+    "build": "mkdir build; react-scripts build && node ./scripts/generateServiceWorker.js && cp -r assets/ build/static/",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "intialsetup": "npm install -g dot-json serve",
     "generate-pwa-assets": "npx pwa-asset-generator ./lovepin.svg -c -f -m -q=100 -o=0 -p=0",
-    "view": "dot-json package.json homepage \".\" && rm -r build && npm run build && dot-json package.json homepage \"https://alixsep.github.io/lovepin\" && serve build"
+    "view": "mkdir build; dot-json package.json homepage \".\" && rm -r build && npm run build && dot-json package.json homepage \"https://alixsep.github.io/lovepin\" && serve build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "node-dir": "^0.1.17"
   }
 }

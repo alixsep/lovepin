@@ -2,7 +2,7 @@ import {
   get,
   /*set, getMany, */ setMany,
   update,
-  keys,
+  clear,
   values,
 } from 'idb-keyval';
 
@@ -51,7 +51,11 @@ export const updateWord = (word) => {
   update(word.id, () => word);
 };
 
-export const getWordList = async () => {
-  let wordList = await keys();
-  return wordList;
+// export const getWordList = async () => {
+//   let wordList = await keys();
+//   return wordList;
+// };
+
+export const deleteDB = () => {
+  return clear();
 };
