@@ -1,16 +1,16 @@
 const CACHE_VERSION = '0.5.0';
 const urlsToCache = 
 [
-  "/",
-  "/apple-icon-180.png",
-  "/asset-manifest.json",
-  "/favicon-196.png",
-  "/index.html",
-  "/manifest-icon-192.maskable.png",
-  "/manifest-icon-512.maskable.png",
-  "/manifest.json",
-  "/static/css/main.2aa18b5b.css",
-  "/static/js/main.ade5c541.js"
+  "/lovepin/",
+  "/lovepin/apple-icon-180.png",
+  "/lovepin/asset-manifest.json",
+  "/lovepin/favicon-196.png",
+  "/lovepin/index.html",
+  "/lovepin/manifest-icon-192.maskable.png",
+  "/lovepin/manifest-icon-512.maskable.png",
+  "/lovepin/manifest.json",
+  "/lovepin/static/css/main.2aa18b5b.css",
+  "/lovepin/static/js/main.ade5c541.js"
 ]
 ;
 
@@ -57,7 +57,6 @@ self.addEventListener('activate', (e) => {
         cacheVersions.map((cacheVersion) => {
           if (!cacheWhitelist.includes(cacheVersion))
             return caches.delete(cacheVersion);
-          else return null;
         })
       )
     )
