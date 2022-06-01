@@ -5,6 +5,7 @@ import './home.scss';
 import GetDB from '../components/GetDB';
 import Search from '../components/Search';
 import { verifyDB } from '../utils/database';
+import BottomBar from '../components/BottomBar';
 
 const Home = () => {
   const [vdb, setVdb] = useState(false);
@@ -20,7 +21,14 @@ const Home = () => {
   return (
     <div className='home-page'>
       <h1 className='title'>L o v e p i n</h1>
-      {vdb ? <Search /> : <GetDB />}
+      {vdb ? (
+        <>
+          <Search />
+          <BottomBar />
+        </>
+      ) : (
+        <GetDB />
+      )}
     </div>
   );
 };

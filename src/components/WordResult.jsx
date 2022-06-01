@@ -7,7 +7,11 @@ import { updateWord } from '../utils/database';
 
 const WordResult = ({ word, setWord, show }) => {
   return (
-    <div className={`word-result mica dsh${show ? ' open' : ''}`}>
+    <div
+      className={`word-result mica dsh${show ? ' open' : ''}${
+        word.id ? ' opaque' : ''
+      }`}
+    >
       <h1
         className='word'
         onDoubleClick={() => {

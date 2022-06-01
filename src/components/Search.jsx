@@ -22,7 +22,7 @@ const Search = () => {
     setResults(
       resources.filter(
         (resource) =>
-          q === '' || resource.word.toLowerCase().includes(q.toLowerCase())
+          q === '' || resource.word.toLowerCase().startsWith(q.toLowerCase())
       )
     );
   };

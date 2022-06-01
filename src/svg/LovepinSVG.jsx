@@ -1,7 +1,7 @@
 export const LovepinSVG = () => {
   return (
     <svg
-      className='icon dsh'
+      className='icon dsh svg_icon'
       width={512}
       height={512}
       viewBox='0 0 135.467 135.467'

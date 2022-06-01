@@ -1,0 +1,45 @@
+@import '../scss/globals.scss';
+
+.bottom-bar {
+  height: 2.5rem;
+  border-radius: 8px 8px 0 0 !important;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  &::after {
+    content: ' ';
+    position: absolute;
+    top: 0rem;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    height: 2px;
+    background: linear-gradient(to right, $cc4, $cc3);
+  }
+}
+.sqrs {
+  height: 3rem;
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  // width: calc(100% - 2rem);
+  // max-width: calc(100vh - 2rem);
+  width:192px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  .sqr {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    .svg_icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}

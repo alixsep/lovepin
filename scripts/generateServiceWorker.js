@@ -1,6 +1,11 @@
+const allowed = ['.html', '.js', '.css', '.png', '.jpg', '.json'];
+const disallowed = ['/sw.js'];
+
 const fs = require('fs');
 const path = require('path');
 const { exit } = require('process');
+
+const prefix = process.env.PREFIX ? process.env.PREFIX : '';
 
 const packageJson = require('../package.json');
 
@@ -10,15 +15,11 @@ let buildPath = path.join(__dirname, '..', 'build');
 
 require('node-dir').files(buildPath, function (err, files) {
   let list = files
-    .filter((file) =>
-      ['.html', '.js', '.css', '.png', '.jpg', '.json'].includes(
-        file.match(/\.[0-9a-z]+$/i)[0]
-      )
-    )
-    .map((file) => '/lovepin' + file.replace(buildPath, ''))
-    .filter((file) => !['/lovepin/sw.js'].includes(file));
+    .filter((file) => allowed.includes(file.match(/\.[0-9a-z]+$/i)[0]))
+    .map((file) => prefix + file.replace(buildPath, ''))
+    .filter((f) => !disallowed.map((i) => prefix + i).includes(prefix + f));
 
-  generate(['/lovepin/', ...list]);
+  generate([prefix + '/', ...list]);
 });
 
 const generate = (list) => {

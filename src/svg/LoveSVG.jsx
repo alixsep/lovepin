@@ -3,7 +3,7 @@ import React from 'react';
 export const LoveSVG = ({ on }) => {
   return (
     <svg
-      className='love'
+      className='svg_icon love'
       viewBox='0 10 158.75 120.75'
       xmlns='http://www.w3.org/2000/svg'
     >

@@ -81,15 +81,19 @@
   margin: 0 1rem;
   height: calc(100vh - 6.5rem);
   transition: all 0.3s cubic-bezier(0.35, 0.85, 0.5, 1);
-  transform: translate(0, 0);
+  transform: translate(0, 16px);
   opacity: 0;
   border-radius: 8px 8px 0 0 !important;
   pointer-events: none;
+  position: relative;
+  z-index: 2;
   // display: none;
   &.open {
     transform: translate(0, -320px);
-    opacity: 1;
     pointer-events: all;
     // display: block;
+  }
+  &.opaque {
+    opacity: 1;
   }
 }
