@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/lovepin/static/css/main.7a41f30a.css",
-    "main.js": "/lovepin/static/js/main.c368c58f.js",
-    "static/media/calig.svg": "/lovepin/static/media/calig.c939544861b2ead24bf9.svg",
+    "main.css": "/lovepin/static/css/main.ae7e1df9.css",
+    "main.js": "/lovepin/static/js/main.a95f1f83.js",
+    "static/media/calig.png": "/lovepin/static/media/calig.a9299122816bfb2a37d6.png",
     "static/media/uk.png": "/lovepin/static/media/uk.1ad99c78720b23b8ed42.png",
     "static/media/us.png": "/lovepin/static/media/us.3c9e24ecfdf1b8379cdd.png",
     "index.html": "/lovepin/index.html"
   },
   "entrypoints": [
-    "static/css/main.7a41f30a.css",
-    "static/js/main.c368c58f.js"
+    "static/css/main.ae7e1df9.css",
+    "static/js/main.a95f1f83.js"
   ]
 }

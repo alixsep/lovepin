@@ -1,4 +1,4 @@
-const CACHE_VERSION = '0.6.0';
+const CACHE_VERSION = '0.7.0';
 const urlsToCache = 
 [
   "/lovepin/",
@@ -9,8 +9,9 @@ const urlsToCache =
   "/lovepin/manifest-icon-192.maskable.png",
   "/lovepin/manifest-icon-512.maskable.png",
   "/lovepin/manifest.json",
-  "/lovepin/static/css/main.7a41f30a.css",
-  "/lovepin/static/js/main.c368c58f.js",
+  "/lovepin/static/css/main.ae7e1df9.css",
+  "/lovepin/static/js/main.a95f1f83.js",
+  "/lovepin/static/media/calig.a9299122816bfb2a37d6.png",
   "/lovepin/static/media/uk.1ad99c78720b23b8ed42.png",
   "/lovepin/static/media/us.3c9e24ecfdf1b8379cdd.png"
 ]
@@ -56,10 +57,11 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys().then((cacheVersions) =>
       Promise.all(
-        cacheVersions.map((cacheVersion) => {
-          if (!cacheWhitelist.includes(cacheVersion))
+        cacheVersions
+          .filter((cacheVersion) => !cacheWhitelist.includes(cacheVersion))
+          .map((cacheVersion) => {
             return caches.delete(cacheVersion);
-        })
+          })
       )
     )
   );
