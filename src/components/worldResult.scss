@@ -27,8 +27,8 @@
       .heart {
         position: absolute;
         top: 0;
-        right: -1rem;
-        z-index: -1;
+        right: -1.5rem;
+        z-index: 1;
       }
     }
   }
@@ -101,5 +101,17 @@
   }
   .example {
     padding: 0 1rem;
+  }
+  .other-result {
+    .word {
+      text-transform: capitalize;
+      font-size: 16px;
+      cursor: pointer;
+      color: $cc5;
+    }
+    .pos {
+      font-size: 12px;
+      color: #7f7f7f;
+    }
   }
 }

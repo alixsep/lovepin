@@ -57,6 +57,8 @@
     border-radius: 8px;
     height: 2.5rem;
     padding: 0.75rem 0.75rem 0;
+    position: relative;
+    z-index: 1;
     cursor: pointer;
     .word {
       text-transform: capitalize;
@@ -79,18 +81,17 @@
 }
 .word-result {
   margin: 0 1rem;
-  height: calc(100vh - 6.5rem);
+  height: calc(100vh - 26.5rem);
   transition: all 0.3s cubic-bezier(0.35, 0.85, 0.5, 1);
   transform: translate(0, 16px);
   opacity: 0;
   border-radius: 8px 8px 0 0 !important;
-  pointer-events: none;
   position: relative;
   z-index: 2;
   // display: none;
   &.open {
     transform: translate(0, -320px);
-    pointer-events: all;
+    height: calc(100vh - 6.5rem);
     // display: block;
   }
   &.opaque {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import './search.scss';
 
-import { SearchSVG } from '../svg';
+import { DismissSVG, SearchSVG } from '../svg';
 import { getSearchResources, getWord } from '../utils/database';
 import WordResult from './WordResult';
 
@@ -37,7 +37,14 @@ const Search = () => {
 
   return (
     <>
-      <div className='search-group mica dsh'>
+      <div
+        className='search-group mica dsh'
+        onBlur={() => {
+          if (query === '') {
+            setIsFocused(false);
+          }
+        }}
+      >
         <input
           className='search-input'
           type='text'
@@ -46,13 +53,24 @@ const Search = () => {
           onFocus={(e) => {
             setIsFocused(true);
           }}
-          onBlur={(e) => {
-            setIsFocused(false);
-          }}
         />
-        <div className='search'>
-          <SearchSVG />
-        </div>
+        {query ? (
+          <div
+            className='search'
+            onClick={() => {
+              setIsFocused(false);
+              setResults([]);
+              setWord({});
+              setQuery('');
+            }}
+          >
+            <DismissSVG />
+          </div>
+        ) : (
+          <div className='search'>
+            <SearchSVG />
+          </div>
+        )}
       </div>
       <div
         className={`search-results mica dsh${isFocused ? ' open' : ''}`}
@@ -64,13 +82,14 @@ const Search = () => {
           ) : results.length ? (
             results.map(
               (result, i) =>
-                i < 100 && (
+                i < 50 && (
                   <div
                     className='search-result'
                     key={result.id}
                     onClick={() => {
                       setQuery(result.word);
                       getWord(result.id).then((word) => setWord(word));
+                      setIsFocused(false);
                     }}
                   >
                     <span className='word'>{result.word}</span>{' '}
@@ -82,7 +101,13 @@ const Search = () => {
             <div className='tip'>No results!</div>
           ))}
       </div>
-      <WordResult word={word} setWord={setWord} show={word.id && !isFocused} />
+      <WordResult
+        word={word}
+        setWord={setWord}
+        show={word.id && !isFocused}
+        isFocused={isFocused}
+        setIsFocused={setIsFocused}
+      />
     </>
   );
 };

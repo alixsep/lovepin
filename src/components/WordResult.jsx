@@ -1,41 +1,57 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import './worldResult.scss';
 
 import { LoveSVG } from '../svg';
-import { updateWord } from '../utils/database';
+import { getWord, updateWord } from '../utils/database';
 
-const WordResult = ({ word, setWord, show }) => {
+const WordResult = ({ word, setWord, show, isFocused, setIsFocused }) => {
+  const ref = useRef(null);
+
+  const likeWord = (e) => {
+    let newWord = word;
+    let love = !word.love;
+    newWord.love = love;
+    setWord((prev) => ({ ...prev, love: love }));
+    updateWord(newWord);
+  };
+
+  const likeWordDef = (definition, i) => {
+    let newWord = word;
+    let love = !definition.love;
+    let newDefinitions = word.definitions;
+    newDefinitions[i].love = love;
+    newWord.definitions = newDefinitions;
+    setWord((prev) => ({ ...prev, definitions: newDefinitions }));
+    updateWord(newWord);
+  };
+
   return (
     <div
+      ref={ref}
       className={`word-result mica dsh${show ? ' open' : ''}${
         word.id ? ' opaque' : ''
       }`}
+      style={{ pointerEvents: word.id || !isFocused ? 'all' : 'none' }}
+      onClick={() => {
+        setIsFocused(false);
+      }}
     >
-      <h1
-        className='word'
-        onDoubleClick={() => {
-          let newWord = word;
-          let love = !word.love;
-          newWord.love = love;
-          setWord((prev) => ({ ...prev, love: love }));
-          updateWord(newWord);
-        }}
-      >
+      <h1 className='word' onDoubleClick={likeWord}>
         <span className='text'>
-          {word?.word}
-          <div className='heart'>
-            <LoveSVG on={word?.love} />
+          {word.word}
+          <div className='heart' onClick={likeWord}>
+            <LoveSVG on={word.love} />
           </div>
         </span>
       </h1>
-      <p className='pos'>{word?.pos}</p>
+      <p className='pos'>{word.pos}</p>
       <div className='pronunciation'>
-        <div className='us'>{word?.pronunciation?.us?.phonetics}</div>
+        <div className='us'>{word.pronunciation?.us?.phonetics}</div>
         <div className='space' />
-        <div className='uk'>{word?.pronunciation?.uk?.phonetics}</div>
+        <div className='uk'>{word.pronunciation?.uk?.phonetics}</div>
       </div>
-      <div className='level'>Level: {word?.level}</div>
+      <div className='level'>Level: {word.level}</div>
       {word.extras &&
         word.extras.map((el, i) => (
           <div key={i} className='extra'>
@@ -43,29 +59,28 @@ const WordResult = ({ word, setWord, show }) => {
           </div>
         ))}
       <h2 className='sub-topic definitions'>Definitions: </h2>
-      {word.definitions &&
+      {word.definitions?.length &&
         word.definitions.map((definition, i) => (
           <div
             key={i}
             className='definition'
-            onDoubleClick={() => {
-              let newWord = word;
-              let love = !definition.love;
-              let newDefinitions = word.definitions;
-              newDefinitions[i].love = love;
-              newWord.definitions = newDefinitions;
-              setWord((prev) => ({ ...prev, definitions: newDefinitions }));
-              updateWord(newWord);
+            onDoubleClick={(e) => {
+              likeWordDef(definition, i);
             }}
           >
             <span>
-              <div className='heart'>
+              <div
+                className='heart'
+                onClick={(e) => {
+                  likeWordDef(definition, i);
+                }}
+              >
                 <LoveSVG on={definition.love} />
               </div>
               {i + 1}
               {'. '}
             </span>
-            {definition.labels &&
+            {definition.labels?.length &&
               definition.labels.map((label, i) => (
                 <span key={i} className='label'>
                   {label}{' '}
@@ -88,6 +103,27 @@ const WordResult = ({ word, setWord, show }) => {
             )}
           </div>
         ))}
+      {word.otherResults?.length ? (
+        <>
+          <span className='sub-topic'>Also see: </span>
+          {word.otherResults?.map((res, i) => (
+            <span
+              key={i}
+              className='other-result'
+              onClick={() => {
+                getWord(res.id).then((word) => {
+                  setWord(word);
+                  ref.current.scrollTo(0, 0);
+                });
+              }}
+            >
+              {i ? ' | ' : ''}
+              <span className='word'>{res.text}</span>{' '}
+              <span className='pos'>{res.pos}</span>{' '}
+            </span>
+          ))}
+        </>
+      ) : null}
     </div>
   );
 };

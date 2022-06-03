@@ -68,10 +68,11 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys().then((cacheVersions) =>
       Promise.all(
-        cacheVersions.map((cacheVersion) => {
-          if (!cacheWhitelist.includes(cacheVersion))
+        cacheVersions
+          .filter((cacheVersion) => !cacheWhitelist.includes(cacheVersion))
+          .map((cacheVersion) => {
             return caches.delete(cacheVersion);
-        })
+          })
       )
     )
   );
