@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/lovepin/static/css/main.ae7e1df9.css",
-    "main.js": "/lovepin/static/js/main.a95f1f83.js",
+    "main.css": "/lovepin/static/css/main.556b8e6b.css",
+    "main.js": "/lovepin/static/js/main.c2057f07.js",
     "static/media/calig.png": "/lovepin/static/media/calig.a9299122816bfb2a37d6.png",
     "static/media/uk.png": "/lovepin/static/media/uk.1ad99c78720b23b8ed42.png",
     "static/media/us.png": "/lovepin/static/media/us.3c9e24ecfdf1b8379cdd.png",
-    "index.html": "/lovepin/index.html"
+    "index.html": "/lovepin/index.html",
+    "static/media/qr.png": "/lovepin/static/media/qr.58411a49525bbccdca19.png"
   },
   "entrypoints": [
-    "static/css/main.ae7e1df9.css",
-    "static/js/main.a95f1f83.js"
+    "static/css/main.556b8e6b.css",
+    "static/js/main.c2057f07.js"
   ]
 }
