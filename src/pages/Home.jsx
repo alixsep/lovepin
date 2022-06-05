@@ -9,6 +9,8 @@ import BottomBar from '../components/BottomBar';
 
 const Home = () => {
   const [vdb, setVdb] = useState(false);
+  const [query, setQuery] = useState('');
+  const [word, setWord] = useState({});
 
   useEffect(() => {
     const _ = async () => {
@@ -23,8 +25,18 @@ const Home = () => {
       <h1 className='title'>L o v e p i n</h1>
       {vdb ? (
         <>
-          <Search />
-          <BottomBar />
+          <Search
+            query={query}
+            setQuery={setQuery}
+            word={word}
+            setWord={setWord}
+          />
+          <BottomBar
+            query={query}
+            setQuery={setQuery}
+            word={word}
+            setWord={setWord}
+          />
         </>
       ) : (
         <GetDB />

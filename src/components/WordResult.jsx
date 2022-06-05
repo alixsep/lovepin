@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import './worldResult.scss';
 
@@ -26,13 +26,17 @@ const WordResult = ({ word, setWord, show, isFocused, setIsFocused }) => {
     updateWord(newWord);
   };
 
+  useEffect(() => {
+    ref.current.scrollTo(0, 0);
+  }, [word.id]);
+
   return (
     <div
       ref={ref}
       className={`word-result mica dsh${show ? ' open' : ''}${
         word.id ? ' opaque' : ''
       }`}
-      style={{ pointerEvents: word.id || !isFocused ? 'all' : 'none' }}
+      style={{ pointerEvents: word.id ? 'all' : 'none' }}
       onClick={() => {
         setIsFocused(false);
       }}
@@ -111,10 +115,7 @@ const WordResult = ({ word, setWord, show, isFocused, setIsFocused }) => {
               key={i}
               className='other-result'
               onClick={() => {
-                getWord(res.id).then((word) => {
-                  setWord(word);
-                  ref.current.scrollTo(0, 0);
-                });
+                getWord(res.id).then((word) => setWord(word));
               }}
             >
               {i ? ' | ' : ''}

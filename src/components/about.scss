@@ -1,0 +1,40 @@
+@import '../scss/globals.scss';
+
+.about {
+  .version {
+    display: flex;
+    justify-content: space-between;
+  }
+  .prg {
+    .svg_icon {
+      width: 1.5rem;
+      height: 1rem;
+    }
+  }
+  .separator {
+    text-align: center;
+  }
+  // .contact-title {
+  //   font-size: 4rem;
+  //   opacity: 0.1;
+  // }
+  .contact-link {
+    display: flex;
+    cursor: pointer;
+    .txt {
+      padding-left: 0.25rem;
+    }
+    .svg-container {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .svg_icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: $cc5;
+      }
+    }
+  }
+}

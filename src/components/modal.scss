@@ -1,0 +1,56 @@
+.modal {
+  position: absolute;
+  bottom: 0;
+  left: 0rem;
+  margin: 0 1rem;
+  width: calc(100% - 2rem);
+  height: 0;
+  transition: all 0.3s cubic-bezier(0.35, 0.85, 0.5, 1);
+  transform: translate(0, 0);
+  opacity: 0;
+  border-radius: 8px 8px 0 0 !important;
+  z-index: 1;
+  overflow-x: hidden;
+  &.open {
+    height: calc(100vh - 3rem);
+  }
+  &.opaque {
+    opacity: 1;
+  }
+  .title-bar {
+    display: flex;
+    .text {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem 0;
+      text-transform: uppercase;
+    }
+    .close {
+      width: 2.5rem;
+      height: 2.5rem;
+      cursor: pointer;
+      // border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .svg_icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        transform: scaleX(-1);
+        transition: all 0.2s ease-in-out;
+        color: #7f7f7f;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+  .body {
+    margin: 0 0.75rem;
+    .about,
+    .share {
+      line-height: 1.75;
+    }
+  }
+}

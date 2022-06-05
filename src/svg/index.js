@@ -5,3 +5,6 @@ export { ShareSVG } from './ShareSVG';
 export { ListSVG } from './ListSVG';
 export { InfoSVG } from './InfoSVG';
 export { DismissSVG } from './DismissSVG';
+export { InstagramSVG } from './InstagramSVG';
+export { GithubSVG } from './GithubSVG';
+// export { QrSVG } from './QrSVG';

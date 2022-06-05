@@ -33,7 +33,7 @@ const Bg = () => {
           {'✦'}
         </div>
       ))}
-      <div className="calig"></div>
+      <div className='calig' />
     </div>
   );
 };

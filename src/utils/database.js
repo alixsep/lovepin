@@ -56,6 +56,16 @@ export const updateWord = (word) => {
 //   return wordList;
 // };
 
+export const getLikedWords = async () => {
+  let db = await values();
+  let likedWords = [];
+  db.forEach((word) => {
+    if (word.id && word.love)
+      likedWords.push({ id: word.id, word: word.word, pos: word.pos });
+  });
+  return likedWords;
+};
+
 export const deleteDB = () => {
   return clear();
 };
