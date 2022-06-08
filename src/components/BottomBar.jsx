@@ -14,6 +14,7 @@ const BottomBar = ({ query, setQuery, word, setWord }) => {
 
   const handleClose = () => {
     setShow(false);
+    setTitle('');
   };
 
   return (
