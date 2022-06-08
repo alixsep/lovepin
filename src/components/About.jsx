@@ -22,9 +22,9 @@ const About = () => {
       </p>
       <Separator />
       <p className='prg'>
-        Lovepin is an open-source dictionary-alike progressive web app. It's not
-        a dictionary. Instead it only contains the Oxford5000 words, from level
-        A1 all the way up to level C2.
+        Lovepin is a free open-source dictionary-alike progressive web app. It's
+        not a dictionary. Instead it only contains the Oxford5000 words, from
+        level A1 all the way up to level C2.
       </p>
       <p className='prg'>
         You can use this app to easily learn these words. People who want to

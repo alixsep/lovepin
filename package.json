@@ -7,7 +7,7 @@
     "email": "alixsep@outlook.com",
     "url": "https://github.com/alixsep"
   },
-  "version": "0.9.1",
+  "version": "0.9.3",
   "private": true,
   "dependencies": {
     "axios": "^0.27.2",
@@ -24,7 +24,7 @@
     "eject": "react-scripts eject",
     "predeploy": "PREFIX=/lovepin npm run build",
     "deploy": "gh-pages -d build",
-    "intialsetup": "npm install -g dot-json serve",
+    "initial-setup": "npm install -g dot-json serve",
     "generate-pwa-assets": "npx pwa-asset-generator ./lovepin.svg -c -f -m -q=100 -o=0 -p=0",
     "view": "mkdir build; dot-json package.json homepage \".\" && rm -r build && npm run build && dot-json package.json homepage \"https://alixsep.github.io/lovepin\" && serve build"
   },

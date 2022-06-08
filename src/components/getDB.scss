@@ -19,3 +19,13 @@
     z-index: -1;
   }
 }
+.intro {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}

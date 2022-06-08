@@ -59,16 +59,23 @@ const GetDB = () => {
   };
 
   return (
-    <div className='get-db mica dsh' onClick={getDatabaseHandler}>
-      <p>{buttonData.msg}</p>
-      <div
-        className='progressbar'
-        style={{
-          width: `${buttonData.percentage}%`,
-          backgroundSize: `${10000 / buttonData.percentage}%`,
-        }}
-      />
-    </div>
+    <>
+      <div className='intro'>
+        <p>Welcome to Lovepin!</p>
+        <p>Learn Oxford5000 words!</p>
+        <p>To get required data, tap start!</p>
+      </div>
+      <div className='get-db mica dsh' onClick={getDatabaseHandler}>
+        <p>{buttonData.msg}</p>
+        <div
+          className='progressbar'
+          style={{
+            width: `${buttonData.percentage}%`,
+            backgroundSize: `${10000 / buttonData.percentage}%`,
+          }}
+        />
+      </div>
+    </>
   );
 };
 
