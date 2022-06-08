@@ -1,4 +1,4 @@
-const CACHE_VERSION = '0.9.0';
+const CACHE_VERSION = '0.9.3';
 const urlsToCache = 
 [
   "/lovepin/",
@@ -9,8 +9,8 @@ const urlsToCache =
   "/lovepin/manifest-icon-192.maskable.png",
   "/lovepin/manifest-icon-512.maskable.png",
   "/lovepin/manifest.json",
-  "/lovepin/static/js/main.c2057f07.js",
-  "/lovepin/static/css/main.556b8e6b.css",
+  "/lovepin/static/js/main.8827bd26.js",
+  "/lovepin/static/css/main.d64a01ba.css",
   "/lovepin/static/media/calig.a9299122816bfb2a37d6.png",
   "/lovepin/static/media/qr.58411a49525bbccdca19.png",
   "/lovepin/static/media/uk.1ad99c78720b23b8ed42.png",
